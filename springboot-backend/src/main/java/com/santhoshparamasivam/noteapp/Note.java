@@ -1,7 +1,46 @@
 package com.santhoshparamasivam.noteapp;
 
-class Note {
-    int primaryKey;
-    String name;
-    String note;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "note")
+public class Note {
+
+    @Id
+    private Integer id;
+
+    private String name;
+
+    private String note;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @Override
+    public String toString() {
+        return "Note{id=" + id + ", name='" + name + "', note='" + note + "'}";
+    }
 }
