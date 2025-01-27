@@ -10,6 +10,6 @@ public interface NoteRepository extends JpaRepository<Note, Integer>
 {
     Optional<Note> findByName(String name);
 
-    @Query(value = "SELECT * FROM note WHERE user_id = :userId", nativeQuery = true)
+    @Query(value = "SELECT * FROM notes WHERE user_id = :userId", nativeQuery = true)
     List<Note> getAllNotesForUser(Integer userId);
 }
