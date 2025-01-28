@@ -71,4 +71,14 @@ public class NoteAppController {
         }
     }
 
+    @PostMapping("/savenote")
+    public void saveNote(@RequestParam Integer userId, @RequestBody Note note)
+    {
+        Note newNote = new Note();
+        newNote.setUserId(userId);
+        newNote.setNote(note.getNote());
+        newNote.setName(note.getName());
+        this.noteService.saveNote(note);
+    }
+
 }

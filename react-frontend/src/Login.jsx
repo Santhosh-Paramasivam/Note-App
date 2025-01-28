@@ -22,18 +22,29 @@ function Login() {
     const onLogin = () => {
         console.log('Login Button Clicked');
 
+        if(!username || !password)
+        {
+          alert("Username and password fields cannot be empty!");
+          return;
+        }
+        
+        if(username.length < 8 || password.length < 8)
+        {
+          alert("Username and password must be atleast 8 characters long");          
+          return;
+        }
+
+
         axios.get('http://localhost:8080/authuser?username=' + username + '&password=' + password)
              .then((response) => {
                 console.log(response.data);
+                navigate("/home", { state : { name : username, id : response.data} });
              })
             .catch((error) => 
             {
 
             });
-    }
 
-    const switchToHome = () => {
-        navigate("/home", { state : { name : "Santhosh", id : 1} });
     }
 
     const onRegister = () => {
@@ -51,10 +62,10 @@ function Login() {
 
     return (
       <div id="login">
-        <h1>Login to Note App</h1>
-        <label >Username: </label><input type="text" value={username} onChange={onUsernameChange}/>
+        <h3>Login to Note App</h3>
+        <label>Username: </label><input type="text" value={username} onChange={onUsernameChange}/>
         <label>Password: </label><input type="password" value={password} onChange={onPasswordChange}/>
-        <button onClick={switchToHome}>Login</button>
+        <button onClick={onLogin}>Login</button>
         <button onClick={onRegister}>Register</button>
       </div>
     );

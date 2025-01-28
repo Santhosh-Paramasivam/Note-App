@@ -12,8 +12,20 @@ function Home() {
   const navigate = useNavigate();
 
   const logOut = () => {
-    navigate("/login")  
+    navigate("/login");
   }
+
+  useEffect(()=>{
+    axios.get('http://localhost:8080/get-notes?userId=' + id)
+                    .then((response) => {
+                        console.log(response.data);
+                        setDiaries(response.data);
+                      })
+                    .catch((error) => 
+                    {
+
+                    })
+  },[])
 
   useEffect(()=>{
     setInterval(()=>{
@@ -27,7 +39,7 @@ function Home() {
 
                     });
 
-    }, 10)
+    }, 10000)
   },[]);
 
   return (
@@ -39,8 +51,11 @@ function Home() {
       </div>
     </nav>
     <div className="container">
-      {diaries && diaries.map((note)=>{return <NoteButton key={note.id} noteName={note.name} note={note.note}></NoteButton>
-})}
+      {
+      diaries && diaries.map((note)=>{
+        return <NoteButton key={note.id} noteName={note.name} note={note.note}></NoteButton>
+        })
+      }
     </div>
     </div>
   );

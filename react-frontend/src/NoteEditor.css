@@ -1,0 +1,27 @@
+#title {
+    font-size: 20pt;
+    height: 40px;
+}
+
+#note {
+    align-self:center;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    flex-grow: 1;
+}
+
+#input-container {
+   height: 100%; 
+}
+
+#container {
+    width: 98%;
+    height: 98%;
+    position: absolute;
+    left: 5px;
+    top: 60px;
+}
+
+
+

@@ -18,4 +18,9 @@ public class NoteService {
     {
         return this.noteRepository.getAllNotesForUser(userID);
     }
+
+    public void saveNote(Note note)
+    {
+        this.noteRepository.save(note);
+    }
 }
