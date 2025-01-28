@@ -25,7 +25,7 @@ public class NoteAppController {
         this.userService = userService;
     }
 
-    @GetMapping("/note")
+    @GetMapping("/get-notes")
     List<Note> getNotesOfUser(@RequestParam Integer userId)
     {
         return noteService.getAllNotesForUser(userId);
@@ -70,4 +70,5 @@ public class NoteAppController {
             return null;
         }
     }
+
 }

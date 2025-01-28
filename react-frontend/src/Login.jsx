@@ -2,8 +2,11 @@ import './Login.css'
 
 import { useState, React } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -29,6 +32,10 @@ function Login() {
             });
     }
 
+    const switchToHome = () => {
+        navigate("/home", { state : { name : "Santhosh", id : 1} });
+    }
+
     const onRegister = () => {
         console.log('Register Button Clicked');
 
@@ -47,7 +54,7 @@ function Login() {
         <h1>Login to Note App</h1>
         <label >Username: </label><input type="text" value={username} onChange={onUsernameChange}/>
         <label>Password: </label><input type="password" value={password} onChange={onPasswordChange}/>
-        <button onClick={onLogin}>Login</button>
+        <button onClick={switchToHome}>Login</button>
         <button onClick={onRegister}>Register</button>
       </div>
     );
