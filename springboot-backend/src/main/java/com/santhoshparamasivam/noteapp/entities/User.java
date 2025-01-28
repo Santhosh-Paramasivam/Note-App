@@ -1,4 +1,4 @@
-package com.santhoshparamasivam.noteapp;
+package com.santhoshparamasivam.noteapp.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -16,7 +16,6 @@ public class User {
     @JsonIgnore
     String password;
 
-    // Ensure these are public getters and setters
     public Integer getId() {
         return this.id;
     }

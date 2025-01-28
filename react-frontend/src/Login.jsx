@@ -19,7 +19,7 @@ function Login() {
     const onLogin = () => {
         console.log('Login Button Clicked');
 
-        axios.get('http://localhost:8080/user?id=1')
+        axios.get('http://localhost:8080/authuser?username=' + username + '&password=' + password)
              .then((response) => {
                 console.log(response.data);
              })
@@ -31,6 +31,15 @@ function Login() {
 
     const onRegister = () => {
         console.log('Register Button Clicked');
+
+        axios.post('http://localhost:8080/adduser?username=' + username + '&password=' + password)
+                    .then((response) => {
+                        console.log(response.data);
+                    })
+                    .catch((error) => 
+                    {
+
+                    });
     };
 
     return (

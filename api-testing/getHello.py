@@ -1,9 +1,10 @@
 import requests
 
 BASE_ROUTE = "http://localhost:8080"
-PATH = "/user?id=1"
+PATH = "/authuser?username=1234&password=abcd"
 
 response = requests.get(BASE_ROUTE + PATH)
 
-print("Status Code:", response.status_code)
-print("Response JSON:", response.content) 
+if (response.ok):
+    print(f'Response : {response.status_code}')
+    print(f'JSON : {response.json()}')

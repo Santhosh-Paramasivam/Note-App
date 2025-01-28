@@ -1,5 +1,6 @@
-package com.santhoshparamasivam.noteapp;
+package com.santhoshparamasivam.noteapp.repositories;
 
+import com.santhoshparamasivam.noteapp.entities.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

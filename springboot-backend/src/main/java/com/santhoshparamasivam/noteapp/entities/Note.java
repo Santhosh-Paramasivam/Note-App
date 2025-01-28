@@ -1,4 +1,4 @@
-package com.santhoshparamasivam.noteapp;
+package com.santhoshparamasivam.noteapp.entities;
 
 import jakarta.persistence.*;
 

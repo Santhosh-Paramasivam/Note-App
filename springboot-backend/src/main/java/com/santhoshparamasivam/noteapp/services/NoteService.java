@@ -1,5 +1,7 @@
-package com.santhoshparamasivam.noteapp;
+package com.santhoshparamasivam.noteapp.services;
 
+import com.santhoshparamasivam.noteapp.entities.Note;
+import com.santhoshparamasivam.noteapp.repositories.NoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
-    List<Note> getAllNotesForUser(Integer userID)
+    public List<Note> getAllNotesForUser(Integer userID)
     {
         return this.noteRepository.getAllNotesForUser(userID);
     }
